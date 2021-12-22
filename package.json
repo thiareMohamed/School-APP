@@ -1,0 +1,27 @@
+{
+  "name": "School-APP",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "serve": "live-server --entry-file=./index.html"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiareMohamed/School-APP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thiareMohamed/School-APP/issues"
+  },
+  "homepage": "https://github.com/thiareMohamed/School-APP#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
+}
