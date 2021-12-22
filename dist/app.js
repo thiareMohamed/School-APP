@@ -15,7 +15,7 @@
   \********************/
 /***/ (() => {
 
-eval("alert('hello')\n\n//# sourceURL=webpack://School-APP/./src/app.js?");
+eval("// Recuperation du DOM\ndocument.getElementsByClassName('')\n\n\n//# sourceURL=webpack://School-APP/./src/app.js?");
 
 /***/ })
 
