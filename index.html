@@ -14,42 +14,44 @@
 
 <body class="bg-light"> 
 
-    <header class="shadow-sm w-75 m-auto text-center bg-warning text-light p-2 colo">
+    <header class="shadow-sm w-75 m-auto bg-warning text-light p-2 colo d-flex justify-content-around">
         <h1>School Application</h1>
+
+        <div>
+            <ul class="d-flex justify-content-around p-2">
+                <li><a href="#">Ajouter un.e apprenant.e </a></li>
+                <li><a href="#" class="ms-5"> La liste des apprenants.es</a></li>
+            </ul>
+        </div>
     </header>
 
-    <main class="mt-2">
+    <main class="mt-2 d-flex justify-content-center">
 
-        <form action="#" class="form form-control shadow-sm w-25 p-2 m-auto">
+        <form action="#" class="form form-control shadow-sm p-2 w-25 m-auto">
             <h3 class="text-warning m-2 text-center">Veillez remplir le formulaire</h3>
 
-            <input type="text" class="form-control shadow-sm mb-2"" name="" id="" placeholder="Nom" required>
-            <input type="text" class="form-control shadow-sm mb-2" name="" id="" placeholder="Prenom" required>
+            <input type="text" class="form-control shadow-sm mb-4"" name="" id="" placeholder="Nom" required>
+            <input type="text" class="form-control shadow-sm mb-4" name="" id="" placeholder="Prenom" required>
             <Label for="Id-niveau" class="form-label">Voter niveau</Label>
-            <select name="" class="form-control shadow-sm mb-2" id="Id-niveau" required>
-                <option value="niveau">Haut</option>
-                <option value="niveau">Moyen</option>
-                <option value="nivea">Faible</option>
+            <select name="" class="form-control shadow-sm mb-4" id="Id-niveau" required>
+                <option value="Haut">Haut</option>
+                <option value="Moyen">Moyen</option>
+                <option value="Faible">Faible</option>
             </select>
             <Label for="Id-photo" class="form-label">Entrez votre photo</Label>
-            <input type="file" class="form-control shadow-sm mb-2" name="" id="Id-photo" required>
-            <textarea class="form-control shadow-sm mb-1" id="" cols="30" rows="2" placeholder="Bio" required></textarea>
+            <textarea class="form-control shadow-sm mb-1" id="" cols="30" rows="5" placeholder="Bio" required></textarea>
             <p>Nombre de caracteres <span class="nombre-caractere">103 </span> / 130</p>
-            <p>Veillez metres les competences en pourcentage</p>
-            <input type="number" min="1" max="100" placeholder="Maquetter une application" class="form-control shadow-sm mb-2" required>
-            <input type="number" min="1" max="100" placeholder="Créer une base de données" class="form-control shadow-sm mb-2" required>
-            <input type="number" min="1" max="100" placeholder="Développer des composants d'accès aux données" class="form-control shadow-sm mb-2" required>
-            <input type="number" min="1" max="100" placeholder="Développer des composants d'accès aux données" class="form-control shadow-sm mb-2" required>
-            <input type="number" min="1" max="100" placeholder="Réaliser une interface utilisateur avec une solution de gestion de contenu" class="form-control shadow-sm mb-2" required>
-            <input type="number" min="1" max="100" placeholder="Réaliser une interface utilisateur web statique et adaptable" class="form-control shadow-sm mb-2" required>
-            <input type="number" min="1" max="100" placeholder="Développer la partie back-end d’une application web ou web mobile" class="form-control shadow-sm mb-2" required>
-            <input type="number" min="1" max="100" placeholder="Élaborer des composants de gestion de contenus" class="form-control shadow-sm mb-2" required>
+            <p>Veillez mettre les competences en pourcentage</p>
+            <input type="number" min="1" max="100" placeholder="Front-end" class="form-control shadow-sm mb-4" required>
+            <input type="number" min="1" max="100" placeholder="Back-end" class="form-control shadow-sm mb-4" required>
+
             <p class="msg-erreur text-danger"></p>
             <input type="submit" class="btn btn-warning text-light shadow-sm w-100" value="Ajouter">
 
         </form>
-        <div class="espace-carte">
+        <div class="espace-carte w-25 m-auto d-flex align-content-around flex-wrap">
 
+            <button class="btn btn-warning text-light w-100 mb-4" id="sauvegarder">Sauvegarder</button>
         </div>
 
     </main>

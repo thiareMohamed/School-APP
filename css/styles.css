@@ -1,0 +1,16 @@
+.carte
+{
+    background-color: white;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover
+{
+    color: black;
+}
+li
+{
+    display: inline;
+}
