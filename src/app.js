@@ -12,7 +12,6 @@ const espaceCarte = document.querySelector('.espace-carte')
 let donnees = []
 let newObj = {}
 
-
 formulaire.addEventListener('submit', (e)=>{
     e.preventDefault();
     let apprenants = 
@@ -29,7 +28,6 @@ formulaire.addEventListener('submit', (e)=>{
     // console.log(newObj);
     creerCarte(donnees)
 })
-
 
 // Les evenements
 function creerCarte(donnees)
