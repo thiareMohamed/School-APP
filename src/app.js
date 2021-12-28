@@ -1,6 +1,6 @@
 const key_api = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MDI2NjA4NSwiZXhwIjoxOTU1ODQyMDg1fQ.b6Z4XOdbU0JG_SLsx25qW1UGobcpS3BycdoCIqoidfE"
 const url_api = "https://wcnhlgmpfqojryqbcxai.supabase.co/rest/v1/Apprenant"
-
+let donnee
 // Recuperation du DOM
 const formulaire = document.querySelector('.form')
 const all = document.querySelectorAll('input')
@@ -32,29 +32,50 @@ formulaire.addEventListener('submit', (e)=>{
 // Les evenements
 function creerCarte(donnees)
 {
+    let objRetourner = {}
     // Creation des apprenant
-    let donnee = donnees[donnees.length - 1]
-    
-        espaceCarte.insertAdjacentHTML(
-            "beforeend",
-            `
-                <div class="carte mb-3" id="${donnee.nom + donnee.prenom}" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="../img/lou.jpg" class="img-fluid img-carte rounded-start" alt="..." accept="image/png, image/jpeg" id="img">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="nom-carte ">${donnee.nom +" "+ donnee.prenom}</h5>
-                                <p class="bio-carte">${donnee.bio}.</p>
-                                <p class="card-text"><small class="niveau-carte">${donnee.niveau}</small></p>
+    donnee = donnees[donnees.length - 1]
+    fetch("https://wcnhlgmpfqojryqbcxai.supabase.co/rest/v1/apprenantProvisoir", {
+            method: "POST",
+            headers: {
+              apikey: key_api,
+              "Content-Type": "application/json",
+              Prefer: "return=representation",
+            },
+            body: JSON.stringify(donnee),
+          }).then(response => response.json())
+          .then((data) => {
+            // Afficher les donnees
+            console.log(data[0]);
+            objRetourner = data[0]
+            espaceCarte.insertAdjacentHTML(
+                "beforeend",
+                `
+                    <form action="#">
+                        <div class="carte-${objRetourner.id} mb-3" id="${objRetourner.nom + objRetourner.prenom}" style="max-width: 540px;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="../img/lou.jpg" class="img-fluid img-carte rounded-start" alt="..." accept="image/png, image/jpeg" id="img">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="nom-carte ">${objRetourner.nom +" "+ objRetourner.prenom}</h5>
+                                        <p class="bio-carte">${objRetourner.bio}.</p>
+                                        <p class="card-text"><small class="niveau-carte">${objRetourner.niveau}</small></p>   
+                                        <div class="text-end">
+                                        <input type="submit" hidden class="btn btn-warning text-light shadow-sm w-100" value="Ajouter">
+
+                                            <i class="bi bi-pen" onclick="modifierCarte(${objRetourner.id})"></i> <i class="bi bi-trash btn-delete text-danger" onclick="deleteCarte(${objRetourner.id})"></i>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            `
-        )
-    console.log(donnees);
+                    </form>
+                `
+            )
+        })
+        
 }
 
 // Sauvegarder les cartes terminees
@@ -69,3 +90,19 @@ document.querySelector('#sauvegarder').addEventListener('click', ()=>{
       })
         return donnees = []
 })
+
+// Suppression de la carte
+function deleteCarte(id)
+{
+    let CartASupprimer = document.querySelector(`.carte-${id}`)
+    fetch("https://wcnhlgmpfqojryqbcxai.supabase.co/rest/v1/apprenantProvisoir?id=eq." + id, {
+        method: "DELETE",
+        headers: {
+        apikey: key_api,
+        'Authorization' : `Bearer ${key_api}`
+        },
+    })
+}
+function modifierCarte (id){
+    c
+}
